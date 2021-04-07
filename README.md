@@ -1,10 +1,10 @@
 # Viewing Party - Google Cloud Platform
 __Below this section is the original project README__
 
-### Purpose
+## Purpose
 This copied repo catalogs my attempt to deploy this application on the Google Cloud Platform's App Engine.  This process is mostly following (this tutorial)[https://www.tastyvar.com/rails-appengine].
 
-#### Struggles
+### Struggles
 I struggled a bit with authorizing Travis CI CLI tool during this step:
 ```
 In order to safely upload these credentials to GitHub and Travis CI, we need to encrypt them using the Travis CI Command Line Client.

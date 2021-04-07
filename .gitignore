@@ -21,3 +21,9 @@
 
 # Ignore application configuration
 /config/application.yml
+
+service-account.json
+
+/config/master.key
+# Ignore master key for decrypting credentials and more.
+/config/master.key

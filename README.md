@@ -42,14 +42,9 @@ I ended up successfully deploying the application to GCP and visiting the home p
       EDITOR=code rails credentials:edit
       ```
  
-  ||
-  ||
-  ||
-  ||
-  ||
-\    /
- \  /
-  \/
+***
+***
+***
 
 
 # Original README

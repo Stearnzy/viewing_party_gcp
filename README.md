@@ -1,4 +1,32 @@
-# Viewing Party
+# Viewing Party - Google Cloud Platform
+__Below this section is the original project README__
+
+### Purpose
+This copied repo catalogs my attempt to deploy this application on the Google Cloud Platform's App Engine.  This process is mostly following (this tutorial)[https://www.tastyvar.com/rails-appengine].
+
+#### Struggles
+I struggled a bit with authorizing Travis CI CLI tool during this step:
+```
+In order to safely upload these credentials to GitHub and Travis CI, we need to encrypt them using the Travis CI Command Line Client.
+
+You can install the client by running:
+
+$ gem install travis
+
+After installing the client, authorize it with Travis CI by running:
+
+$ travis login --com
+```
+I worked around this by generating a personal access token with user and repo scopes and entering it this way on the command line:
+```
+travis login --pro --github-token yourGitHubTokenHere
+```
+
+
+
+
+Original README
+------
 
 This is a three-person group project as part of Turing School of Software and Design's Back-End Engineering program, Module 3.  We utilized our knowledge in Ruby on Rails, ActiveRecord and PostgreSQL to build a website for creating movie watch parties created by users, for users.  We introduced our new knowledge of consuming APIs to pull movie data from TheMovieDB's API.
 

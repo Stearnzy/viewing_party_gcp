@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: viewing_party_production
-  username: viewing_party
-  password: <%= ENV['VIEWING_PARTY_DATABASE_PASSWORD'] %>
+  database: <%= ENV["DATABASE_NAME"] %>
+  host: <%= ENV["DATABASE_HOST"] %>
+  username: <%= Rails.application.credentials.db.fetch(:username) %>
+  password: <%= Rails.application.credentials.db.fetch(:password) %>

@@ -2,3 +2,5 @@ runtime: ruby25
 entrypoint: bundle exec rails server -p $PORT
 env_variables:
   RAILS_ENV: production
+  DATABASE_NAME: vp_gcp_prod
+  DATABASE_HOST: /cloudsql/viewing-party-gcp:us-west3:viewing-party-gcp

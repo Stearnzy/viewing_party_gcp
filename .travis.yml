@@ -42,7 +42,7 @@ deploy:
   script: ./bin/deploy
   skip_cleanup: true
   on:
-    branch: master
+    branch: main
 
 # language: ruby
 # rbenv:

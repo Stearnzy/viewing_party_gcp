@@ -7,7 +7,7 @@ end
 
 ruby '~> 2.5.0'
 
-gem 'rails', '5.2.4.3'
+gem 'rails'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
@@ -21,8 +21,6 @@ gem 'figaro'
 
 gem 'bootstrap', '~> 5.0.0.alpha3'
 gem 'jquery-rails'
-
-# gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 
 gem 'appengine'
 

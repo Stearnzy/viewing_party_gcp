@@ -5,7 +5,8 @@ __Below this section is the original project README__
 This copied repo catalogs my attempt to deploy this application on the Google Cloud Platform's App Engine.  This process is mostly following (this tutorial)[https://www.tastyvar.com/rails-appengine].
 
 ### Struggles
-I struggled a bit with authorizing Travis CI CLI tool during this step:
+  * Travis CI
+    * I struggled a bit with authorizing Travis CI CLI tool during this step:
 ```
 In order to safely upload these credentials to GitHub and Travis CI, we need to encrypt them using the Travis CI Command Line Client.
 
@@ -21,6 +22,17 @@ I worked around this by generating a personal access token with user and repo sc
 ```
 travis login --pro --github-token yourGitHubTokenHere
 ```
+
+### Lessons
+
+  * Credentials and Master files 
+    * Credentials.yml.enc contain your secrets like API keys and can be pushed to GitHub as the file is already encrypted
+    * Master.key contains a generated key to decrypt the Credentials file on a platform like GCP
+      * Running the following auto-generates these files and inserts a key into master.key
+      ``` 
+      EDITOR=code rails credentials:edit
+      ```
+ 
 
 
 

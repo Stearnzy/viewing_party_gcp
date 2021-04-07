@@ -4,24 +4,33 @@ __Below this section is the original project README__
 ## Purpose
 This copied repo catalogs my attempt to deploy this application on the Google Cloud Platform's App Engine.  This process is mostly following (this tutorial)[https://www.tastyvar.com/rails-appengine].
 
-### Struggles
-  * Travis CI
+## Struggles
+### Travis CI
+  * Authorizing CLI tool with GitHub credential login:
     * I struggled a bit with authorizing Travis CI CLI tool during this step:
-```
-In order to safely upload these credentials to GitHub and Travis CI, we need to encrypt them using the Travis CI Command Line Client.
+    ```
+    In order to safely upload these credentials to GitHub and Travis CI, we need to encrypt them using the Travis CI Command Line Client.
 
-You can install the client by running:
+    You can install the client by running:
 
-$ gem install travis
+    $ gem install travis
 
-After installing the client, authorize it with Travis CI by running:
+    After installing the client, authorize it with Travis CI by running:
 
-$ travis login --com
-```
-I worked around this by generating a personal access token with user and repo scopes and entering it this way on the command line:
-```
-travis login --pro --github-token yourGitHubTokenHere
-```
+    $ travis login --com
+    ```
+    * I worked around this by generating a personal access token with user and repo scopes and entering it this way on the command line:
+    ```
+    travis login --pro --github-token yourGitHubTokenHere
+    ```
+
+  * Builds failing:
+    * Checking build logs shows that the necessary `mimemagic` dependency could not be found.  After some research, I saw that this is a current problem for a lot of Rails users, with no clear solution besides updating.  I was also getting this `mimemagic` error on my local machine when trying to deploy to GCP, and that was resolved with removing the specified version of Rails in the Gemfile followed by a `bundle update`.  After this, deployment was successful to GCP and the home page works, but builds on Travis are still hung up on this issue despite a push to main on GitHub.
+
+
+### PostgreSQL Database Deployment
+I ended up successfully deploying the application to GCP and visiting the home page after the `bundle update` mentioned previously, but trying to create an account or log in resulted in an error.  Checking the logs, I saw the error `PG::UndefinedTable: ERROR: relation "users" does not exist`, hinting at a database migration issue.  Currently working on resolving this.
+
 
 ### Lessons
 

@@ -2,7 +2,7 @@
 __Below this section is the original project README__
 
 ## Purpose
-This copied repo catalogs my attempt to deploy this application on the Google Cloud Platform's App Engine.  This process is mostly following [this tutorial](https://www.tastyvar.com/rails-appengine).
+This copied repo catalogs my attempt to deploy this application on the Google Cloud Platform's App Engine.  This process is mostly following [this tutorial](https://www.tastyvar.com/rails-appengine).  The deployed application can be found at https://viewing-party-gcp.wm.r.appspot.com/movies/19404
 
 ## Struggles
 ### Travis CI

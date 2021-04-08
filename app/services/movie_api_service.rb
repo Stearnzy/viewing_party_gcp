@@ -59,7 +59,7 @@ class MovieApiService
 
   def self.conn
     Faraday.new(url: 'https://api.themoviedb.org') do |faraday|
-      faraday.params[:api_key] = ENV['MOVIE_DB_API_KEY']
+      faraday.params[:api_key] = Rails.application.credentials.dig(:MOVIE_DB_API_KEY)
     end
   end
 

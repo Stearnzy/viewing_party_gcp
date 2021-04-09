@@ -2,7 +2,7 @@
 __Below this section is the original project README__
 
 ## Purpose
-This copied repo catalogs my attempt to deploy this application on the Google Cloud Platform's App Engine.  This process is mostly following [this tutorial](https://www.tastyvar.com/rails-appengine).  The deployed application can be found at https://viewing-party-gcp.wm.r.appspot.com/movies/19404
+This copied repo catalogs my attempt to deploy this application on the Google Cloud Platform's App Engine.  This process is mostly following [this tutorial](https://www.tastyvar.com/rails-appengine).  The deployed application can be found at https://viewing-party-gcp.wm.r.appspot.com/
 
 ## Struggles
 ### Travis CI
@@ -31,6 +31,8 @@ This copied repo catalogs my attempt to deploy this application on the Google Cl
 ### PostgreSQL Database Deployment
 I ended up successfully deploying the application to GCP and visiting the home page after the `bundle update` mentioned previously, but trying to create an account or log in resulted in an error.  Checking the logs, I saw the error `PG::UndefinedTable: ERROR: relation "users" does not exist`, hinting at a database migration issue.  To fix this, I ended up manually making the migration from the command line using `bundle exec rake appengine:exec -- bundle exec rake db:migrate`.
 
+### Storing API Key for TheMovieDB
+After resolving the database issue, I was now getting errors due to GCP not having my API key.  I encrypted it in the credentials file, and after some researching I ended up substituting the environment variable call in the file `movie_api_service.rb` with `Rails.application.credentials.dig(:MOVIE_DB_API_KEY)`.  I am sure there is a more direct way to do this on GCP itself, but with respect to the limited time I had to get this running, this works and is still maintaining secure information.
 
 ### Lessons
 
@@ -41,6 +43,11 @@ I ended up successfully deploying the application to GCP and visiting the home p
       ``` 
       EDITOR=code rails credentials:edit
       ```
+ * GCP had many different API service one can add to a project.  
+   * Cloud Build is a CI/CD platform similar to Travis CI that performs builds and runs automated tests to ensure an application can be deployed effectively.
+   * Cloud SQL is a fully-functional relational database service to which I was able to create an instance of a PostgreSQL database necessary for my application.
+   * Cloud SDK is a command line tool that allowed me to run configurations and deploy my application through the `gcloud` command from my local terminal.
+ 
  
 ***
 ***

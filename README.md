@@ -29,7 +29,7 @@ This copied repo catalogs my attempt to deploy this application on the Google Cl
 
 
 ### PostgreSQL Database Deployment
-I ended up successfully deploying the application to GCP and visiting the home page after the `bundle update` mentioned previously, but trying to create an account or log in resulted in an error.  Checking the logs, I saw the error `PG::UndefinedTable: ERROR: relation "users" does not exist`, hinting at a database migration issue.  Currently working on resolving this.
+I ended up successfully deploying the application to GCP and visiting the home page after the `bundle update` mentioned previously, but trying to create an account or log in resulted in an error.  Checking the logs, I saw the error `PG::UndefinedTable: ERROR: relation "users" does not exist`, hinting at a database migration issue.  To fix this, I ended up manually making the migration from the command line using `bundle exec rake appengine:exec -- bundle exec rake db:migrate`.
 
 
 ### Lessons
